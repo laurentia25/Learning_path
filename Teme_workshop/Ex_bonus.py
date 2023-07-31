@@ -211,52 +211,52 @@ try-except in implementarea decoratorului)
 """
 
 
-def new_decorator(original_func):
-    calls = 0
-
-    def wrapper_func():
-        nonlocal calls
-        if calls < 3:
-            original_func()
-            calls += 1
-        else:
-            print("Functia a fost apelata de 3 ori!")
-    return wrapper_func
-
-
-@new_decorator
-def counted_func():
-    print("Functia numarata")
-
-
-counted_func()
-counted_func()
-counted_func()
-counted_func()
+# def new_decorator(original_func):
+#     calls = 0
+#
+#     def wrapper_func():
+#         nonlocal calls
+#         if calls < 3:
+#             original_func()
+#             calls += 1
+#         else:
+#             print("Functia a fost apelata de 3 ori!")
+#     return wrapper_func
+#
+#
+# @new_decorator
+# def counted_func():
+#     print("Functia numarata")
+#
+#
+# counted_func()
+# counted_func()
+# counted_func()
+# counted_func()
 
 # Pentru functii cu parametri:
 
 
-def new_decorator(original_func):
-    calls = 0
-
-    def wrapper_func(*args, **kwargs):
-        nonlocal calls
-        if calls < 3:
-            original_func(*args, **kwargs)
-            calls += 1
-        else:
-            print("Functia a fost apelata de 3 ori!")
-
-    return wrapper_func
-
-
-@new_decorator
-def counted_func(a):
-    print(a*a)
-
-
-counted_func(5)
-counted_func(4)
-counted_func(3)
-counted_func(2)
+# def new_decorator(original_func):
+#     calls = 0
+#
+#     def wrapper_func(*args, **kwargs):
+#         nonlocal calls
+#         if calls < 3:
+#             original_func(*args, **kwargs)
+#             calls += 1
+#         else:
+#             print("Functia a fost apelata de 3 ori!")
+#
+#     return wrapper_func
+#
+#
+# @new_decorator
+# def counted_func(a):
+#     print(a*a)
+#
+#
+# counted_func(5)
+# counted_func(4)
+# counted_func(3)
+# counted_func(2)
