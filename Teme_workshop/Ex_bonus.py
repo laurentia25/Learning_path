@@ -169,7 +169,6 @@ Clasa Restaurant:
 # account.check_balance()
 
 
-
 """
 4. Implementeaza un decorator care converteste rezultatul returnat de
 o functie la int. Daca conversia nu se poate face, trebuie afisat
@@ -212,21 +211,52 @@ try-except in implementarea decoratorului)
 """
 
 
-def count_calls_decorator(func):
-    def wrapper_func(*args, **kwargs):
+def new_decorator(original_func):
+    calls = 0
 
-        result = func(*args, **kwargs)
-        return result
-    wrapper_func.call_count = 0
+    def wrapper_func():
+        nonlocal calls
+        if calls < 3:
+            original_func()
+            calls += 1
+        else:
+            print("Functia a fost apelata de 3 ori!")
     return wrapper_func
 
-@count_calls_decorator
-def number():
-    return 1
 
-number()
+@new_decorator
+def counted_func():
+    print("Functia numarata")
 
-number()
 
-n = count_calls_decorator(number())
-print(n)
+counted_func()
+counted_func()
+counted_func()
+counted_func()
+
+# Pentru functii cu parametri:
+
+
+def new_decorator(original_func):
+    calls = 0
+
+    def wrapper_func(*args, **kwargs):
+        nonlocal calls
+        if calls < 3:
+            original_func(*args, **kwargs)
+            calls += 1
+        else:
+            print("Functia a fost apelata de 3 ori!")
+
+    return wrapper_func
+
+
+@new_decorator
+def counted_func(a):
+    print(a*a)
+
+
+counted_func(5)
+counted_func(4)
+counted_func(3)
+counted_func(2)
