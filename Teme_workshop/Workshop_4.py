@@ -285,7 +285,14 @@ Tratează cazurile în care reducerea e invalidă. De exemplu o reducere de 110%
 '''19. Funcție care să afișeze câte zile mai sunt până la ziua ta / 
 sau până la Crăciun dacă nu vrei să ne zici cand e ziua ta :)
 '''
-
+# import datetime
+#
+# def count_days(birthday):
+#     diferrence = birthday - datetime.date.today()
+#     days = diferrence.days
+#     return days
+#
+# print(count_days('2023-8-25'))
 # EX OOP
 
 '''1.Clasa Cerc
@@ -492,33 +499,39 @@ Data: generează automat data de azi
 Produs | cantitate | preț bucată | Total 
 Telefon |      7       |       700       | 49000     
  '''
-
-class Factura:
-    SERIE = 'ABC'
-
-    def __init__(self, numar, nume_produs, cantitate, pret_buc):
-        self.numar = numar
-        self.nume_produs = nume_produs
-        self.cantitate = cantitate
-        self.pret_buc = pret_buc
-
-    def schimba_cantitatea(self, new_cantitate):
-        self.new_cantitate = new_cantitate
-        self.cantitate = self.new_cantitate
-        return self.cantitate
-
-    def schimba_pretul(self, new_price):
-        self.new_price = new_price
-        self.pret_buc = self.new_price
-        return self.pret_buc
-
-    def schimbă_nume_produs(self, new_name):
-        self.new_name = new_name
-        self.nume_produs = self.new_name
-        return self.nume_produs
-
-
-factura1 = Factura(12, 'rosii', 3, 2)
-print(factura1.schimba_cantitatea(4))
-
+# import datetime
+# class Factura:
+#     SERIE = 'ABC'
+#
+#     def __init__(self, numar, nume_produs, cantitate, pret_buc):
+#         self.numar = numar
+#         self.nume_produs = nume_produs
+#         self.cantitate = cantitate
+#         self.pret_buc = pret_buc
+#
+#     def schimba_cantitatea(self, new_cantitate):
+#         self.new_cantitate = new_cantitate
+#         self.cantitate = self.new_cantitate
+#         return self.cantitate
+#
+#     def schimba_pretul(self, new_price):
+#         self.new_price = new_price
+#         self.pret_buc = self.new_price
+#         return self.pret_buc
+#
+#     def schimbă_nume_produs(self, new_name):
+#         self.new_name = new_name
+#         self.nume_produs = self.new_name
+#         return self.nume_produs
+#
+#     def genereaza_factura(self, seria, number):
+#         print(f'Factura seria {seria} numar {number}')
+#         print(f'Data: {datetime.date.today()}')
+#         print('Produs', 'Cantitate', 'Pret bucata', 'Total', sep='||')
+#         print(self.nume_produs, self.cantitate, self.pret_buc, self.pret_buc * self.cantitate, sep='||')
+#
+#
+# factura1 = Factura(12, 'rosii', 3, 2)
+# print(factura1.schimba_cantitatea(4))
+# factura1.genereaza_factura('A', 524)
 
